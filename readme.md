@@ -10,14 +10,23 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-## Official Documentation
+#Projeto de Estudo: Imobiliária
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+> Este projeto é um estudo do framework laravel 5. 
+> O projeto consiste em um sistema de cadastro de imóveis para anuncio online (imobiliária online). Utilizo o framework laravel 5. Utilizo o template blade para criação das views
 
-## Contributing
+#Requisitos
+>- PHP >= 5.4
+>- Mcrypt PHP Extension
+>- OpenSSL PHP Extension
+>- Mbstring PHP Extension
+>- Tokenizer PHP Extension
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+#Como instalar
+>- É Necessário um servidor com php e mysql instalado.
+>- Para configurar os dados para acesso ao banco de dados, edite o arquivo *.env*, colocando as informações necessárias neste arquivo.
+>- É preciso criar um virtual host apontando para a pasta */public* no diretório do projeto.
+>- Não esqueça de olhar o arquivo *composer.json*!
 
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+#Mais informações
+[ Laravel Docs](http://laravel.com/docs)
