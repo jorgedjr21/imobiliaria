@@ -48,7 +48,7 @@ class HomeController extends Controller {
         }
 
 
-            return view('home',compact('ads','propimg','user','count_add'));
+            return view('advertisements.main_adds',compact('ads','propimg','user','count_add'));
 
 	}
 

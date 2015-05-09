@@ -1,6 +1,6 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
+	"name": "Imobiliaria",
+	"description": "Imobiliaria, laravel.",
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"type": "project",

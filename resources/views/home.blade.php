@@ -57,46 +57,8 @@
     </style>
 
 </head>
-<body>
 
-<header class="navbar navbar-default navbar-static-top" role="banner">
-    <div class="container">
-        <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-           <strong><a href="/" class="navbar-brand"><i class="fa fa-home "></i> Imobiliária</a></strong>
-        </div>
-        <nav class="navbar-collapse collapse" role="navigation">
-            <ul class="nav navbar-nav">
-                @if(!is_null($user))
-                    <li><a href="{{route('advertisements.index')}}">My ads ({{$count_add[0]->total}})</a></li>
-                @endif
-                <li>
-                    <a href="#">Edit</a>
-                </li>
-                <li>
-                    <a href="#">Visualize</a>
-                </li>
-                <li>
-                    <a href="#">Prototype</a>
-                </li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                @if(is_null($user))
-                    <li><a href="{{route('users.login')}}">Login</a></li>
-                @else
-                    <li><a href="{{route('users.show',['id'=>$user->id])}}"><strong>Profile</strong></a></li>
-                    <li><a href="{{route('users.logout')}}">Logout &nbsp; <i class="fa fa-arrow-right"></i></a></li>
-                @endif
-            </ul>
-        </nav>
-    </div>
-</header>
+@include('main_header.blade.php')
 
 
     <div class="container">
@@ -110,7 +72,6 @@
                         <div class="input-group-btn"><button type="button" name="search" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Search!"><i class="fa fa-search"></i> </button> </div>
                     </div>
                 </div>
-
             </form>
 
         </div>
@@ -128,47 +89,6 @@
             </div>
 
 
-        <div class="col-md-8" style="margin-left: 10px;">
-
-                @if(count($ads) > 0)
-
-                    @foreach($ads as $ad)
-                        {{--*/ $maximg = count($propimg[$ad->id]); $img = rand(0,$maximg-1); /*--}}
-                        <div class="col-md-6 text-center">
-                            <div class="panel panel-warning panel-pricing">
-                                <div class="panel-heading text-center">
-                                    <a href="{{route('advertisements.show',['ad_code'=>$ad->ad_code])}}"><img src="{{$propimg[$ad->id][$img]->path}}" width="290" height="200" alt="img"/></a>
-                                    <h3>{{$ad->street.', '.$ad->city.' - '.$ad->state}}</h3>
-                                </div>
-                                <div class="panel-body text-center">
-                                    <p><strong>R$ {{number_format($ad->price,2,',','.')}}</strong></p>
-                                </div>
-                                <ul class="list-group text-center">
-                                    <li class="list-group-item"><span class="text-primary"><i class="fa fa-bed"></i><strong> Quartos: </strong> {{$ad->bedrooms}}</span></li>
-                                    <li class="list-group-item"><span class="text-warning"><i class="fa fa-cutlery"></i><strong> Cozinhas: </strong> {{$ad->kitchens}}</span></li>
-                                    <li class="list-group-item"><span class="text-default"><i class="fa fa-file-text-o"></i><strong> Type: </strong> {{ $ad->type_ad }}</span></li>
-                                    <li class="list-group-item"><span class="text-info"><i class="fa fa-search"></i><strong> Code: </strong> {{ $ad->ad_code }}</span></li>
-                                </ul>
-
-                                <div class="panel-footer">
-                                    <a class="btn btn-lg btn-block btn-success" href="{{route('advertisements.show',['ad_code'=>$ad->ad_code])}}">MORE INFO!</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    @endforeach
-
-                    {!! $ads->render() !!}
-                @else
-                    <div class="panel panel-info">
-                        <div class="panel-heading"><h3 class="panel-title">Anúncios: {{count($ads)}}</h3></div>
-                        <div class="panel-body">
-                            <p class="text-warning"><strong>Nenhum anúncio encontrado!</strong></p>
-                        </div>
-                    </div>
-                @endif
-        </div>
-
         </div>
         @yield('content')
 
@@ -179,12 +99,56 @@
                 </div>
             </div>
         </footer>
+
+        <div class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    {!!Form::open(['method'=>'POST','class'=>'form-horizontal','url'=>['users/register']]) !!}
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="text-danger">x</span>
+                        </button>
+                        <h4 class="modal-title">Cadastro de Usuário</h4>
+
+                    </div>
+                    <div class="modal-body">
+                        @include('users/partials/_form',['submit_text'=>'Create User'])
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-lg pull-left" data-dismiss="modal">Close</button>
+                    </div>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+
     </div>
+
+
 
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="{{asset('/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('/js/app.min.js')}}"></script>
-@yield('scripts')
+<script>
+    $(document).ready(function(){
+        newUserModal();
+
+        @if(count($errors) > 0)
+        showErrors();
+        @endif;
+    });
+
+    function newUserModal(){
+        $("#newuser").click(function(){
+            $(".modal").modal('show');
+        });
+    }
+
+    @if(count($errors) > 0)
+    function showErrors(){
+        $(".modal").modal('show');
+    }
+    @endif
+</script>
 </body>
 </html>

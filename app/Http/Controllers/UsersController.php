@@ -79,7 +79,8 @@ class UsersController extends Controller {
 	{
         //
         $user = (Auth::user())? Auth::user(): null;
-        return view('users.create',compact('user'));
+
+        return view('users.create', compact('user'));
 
 	}
 
@@ -110,7 +111,11 @@ class UsersController extends Controller {
         if ($validator->fails()) {
             $error = $validator->messages();
 
+            if(!Auth::user()){
+                return Redirect::to('/')->withErrors($validator)->withInput(Input::except('password', 'password_confirm'));
+            }
             return Redirect::to('users')->withErrors($validator)->withInput(Input::except('password', 'password_confirm'));
+
         } else {
             //User::create($input);
             $user = new User;

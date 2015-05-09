@@ -1,4 +1,4 @@
-<div class="form-group @if($errors->has('name')) has-error @endif">
+<div class="form-group @if($errors->has('name')) has-warning @endif">
     {!! Form::label('name','Name:',['class'=>'col-md-3 control-label']) !!}
     <div class="col-md-8">
         {!! Form::text('name',Form::old('name'),['class'=>'form-control']) !!}
@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<div class="form-group @if($errors->has('email')) has-error @endif">
+<div class="form-group @if($errors->has('email')) has-warning @endif">
     {!! Form::label('email','Email:',['class'=>'col-md-3 control-label']) !!}
     <div class="col-md-8">
         {!! Form::text('email',Form::old('email'),['class'=>'form-control']) !!}
@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<div class="form-group @if($errors->has('password')) has-error @endif">
+<div class="form-group @if($errors->has('password')) has-warning @endif">
     {!! Form::label('password','Password:',['class'=>'col-md-3 control-label']) !!}
     <div class="col-md-8">
         {!! Form::password('password',['class'=>'form-control']) !!}
@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<div class="form-group @if($errors->has('password_confirmation')) has-error @endif">
+<div class="form-group @if($errors->has('password_confirmation')) has-warning @endif">
     {!! Form::label('password_confirmation','Password Confirmation:',['class'=>'col-md-3 control-label']) !!}
     <div class="col-md-8">
         {!! Form::password('password_confirmation',['class'=>'form-control']) !!}
