@@ -24,9 +24,11 @@ Laravel is accessible, yet powerful, providing powerful tools needed for large, 
 
 #Como instalar
 >- É Necessário um servidor com php e mysql instalado.
->- Para configurar os dados para acesso ao banco de dados, edite o arquivo *.env*, colocando as informações necessárias neste arquivo.
+>- Para configurar os dados para acesso ao banco de dados, edite o arquivo *.env.example*, colocando as informações necessárias neste arquivo. Após a alteração, renomeie o arquivo para *.env*
 >- É preciso criar um virtual host apontando para a pasta */public* no diretório do projeto.
 >- Não esqueça de olhar o arquivo *composer.json*!
 
 #Mais informações
 [ Laravel Docs](http://laravel.com/docs)
+
+[ Laravel Install Guide] (http://laravel.com/docs/5.0/installation)
