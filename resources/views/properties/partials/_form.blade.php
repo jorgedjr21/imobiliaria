@@ -96,19 +96,19 @@
         {!! Form::text('neighborhood',Form::old('neighborhood'),['class'=>'form-control']) !!}
         @if($errors->has('neighborhood')) <p class="help-block">{{$errors->first('neighborhood')}}</p> @endif
     </div>
-    <div class="col-md-4 @if($errors->has('city')) has-error @endif">
+    <div class="col-md-3 @if($errors->has('state')) has-error @endif">
+        {!! Form::label('state','State:',['class'=>'control-label']) !!}
+        {!! Form::select('state',$states,Form::old('state'),['class'=>'form-control']) !!}
+        @if($errors->has('state')) <p class="help-block">{{$errors->first('state')}}</p> @endif
+    </div>
+    <div class="col-md-3 @if($errors->has('city')) has-error @endif">
         {!! Form::label('city','City:',['class'=>'control-label']) !!}
         {!! Form::text('city',Form::old('city'),['class'=>'form-control']) !!}
         @if($errors->has('city')) <p class="help-block">{{$errors->first('city')}}</p> @endif
     </div>
-    <div class="col-md-2 @if($errors->has('state')) has-error @endif">
-        {!! Form::label('state','State:',['class'=>'control-label']) !!}
-        {!! Form::text('state',Form::old('state'),['class'=>'form-control']) !!}
-        @if($errors->has('state')) <p class="help-block">{{$errors->first('state')}}</p> @endif
-    </div>
     <div class="col-md-2 @if($errors->has('country')) has-error @endif">
         {!! Form::label('country','Country:',['class'=>'control-label']) !!}
-        {!! Form::text('country',Form::old('country'),['class'=>'form-control']) !!}
+        {!! Form::text('country','Brasil',['class'=>'form-control','disabled'=>'disabled']) !!}
         @if($errors->has('country')) <p class="help-block">{{$errors->first('country')}}</p> @endif
     </div>
 </div>

@@ -31,7 +31,7 @@
                 @if(is_null($user))
                     <li><a href="{{route('users.login')}}">Login</a></li>
                 @else
-                    <li><a href="{{route('users.show',['id'=>$user->id])}}"><strong>Profile</strong></a></li>
+                    <li><a href="{{route('users.show')}}"><strong>Profile</strong></a></li>
                     <li><a href="{{route('users.logout')}}">Logout &nbsp; <i class="fa fa-arrow-right"></i></a></li>
                 @endif
             </ul>

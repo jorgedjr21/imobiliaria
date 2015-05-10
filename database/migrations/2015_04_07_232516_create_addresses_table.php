@@ -14,6 +14,7 @@ class CreateAddressesTable extends Migration {
 	{
 		Schema::create('addresses', function(Blueprint $table)
 		{
+            $table->engine ='InnoDB';
             $table->integer('address_id')->unsigned()->default(0);
             $table->primary('address_id');
             $table->foreign('address_id')->references('id')->on('properties');
@@ -21,12 +22,15 @@ class CreateAddressesTable extends Migration {
             $table->integer('number');
             $table->string('adjunct',60)->default('');
             $table->string('neighborhood');
-            $table->string('city',30);
-            $table->string('state',20);
+            $table->integer('state')->unsigned();
+            $table->foreign('state')->references('id')->on('states');
+            $table->integer('city')->unsigned();
+            $table->foreign('city')->references('id')->on('cities');
             $table->string('zipcode',15);
             $table->string('country')->default('Brasil');
             $table->timestamps();
 		});
+
 	}
 
 	/**

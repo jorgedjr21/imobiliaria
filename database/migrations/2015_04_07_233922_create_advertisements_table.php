@@ -14,6 +14,7 @@ class CreateAdvertisementsTable extends Migration {
 	{
 		Schema::create('advertisements', function(Blueprint $table)
 		{
+            $table->engine ='InnoDB';
             $table->integer('property_id')->unsigned()->default(0);
             $table->primary('property_id');
             $table->foreign('property_id')->references('id')->on('properties');

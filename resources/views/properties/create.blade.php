@@ -37,7 +37,7 @@
                         <div class="box-header"><i class="fa fa-plus-circle"></i><h3 class="box-title">New Advertisement</h3></div>
                         <div class="box-body">
                             {!! Form::open(['method'=>'POST','url'=>['advertisements/new'],'files'=>true]) !!}
-                            @include('properties/partials/_form',['submit_text'=>'Create Advertisement'])
+                            @include('properties/partials/_form',['submit_text'=>'Create Advertisement','states'=>$selectStates])
                             {!! Form::close()!!}
                         </div>
                     </div>

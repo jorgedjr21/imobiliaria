@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImagesTable extends Migration {
+class CreateCitiesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,14 @@ class CreateImagesTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('prop_images',function(Blueprint $table){
+        Schema::create('cities', function(Blueprint $table)
+        {
             $table->engine ='InnoDB';
             $table->increments('id');
-            $table->integer('property_id')->unsigned()->default(0);
-            $table->foreign('property_id')->references('id')->on('properties');
-            $table->string('path');
+            $table->integer('state_id')->unsigned();
+            $table->foreign('state_id')->references('id')->on('states');
+            $table->string('city_name',100);
         });
-
 	}
 
 	/**
@@ -29,7 +29,7 @@ class CreateImagesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('prop_images');
+		Schema::drop('cities');
 	}
 
 }

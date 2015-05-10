@@ -1,12 +1,12 @@
 @extends('layouts.layout')
-@section('title', 'Profile: '.$userInfo->name)
+@section('title', 'Profile: '.$user->name)
 
 @section('content')
     <section class="content">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">{{$userInfo->name}}</h3>
+                <h3 class="panel-title">{{$user->name}}</h3>
             </div>
 
             <div class="panel-body">
@@ -17,11 +17,11 @@
                             <tbody>
                             <tr>
                                 <td class="text-bold">Name: </td>
-                                <td>{{$userInfo->name}}</td>
+                                <td>{{$user->name}}</td>
                             </tr>
                             <tr>
                                 <td class="text-bold">Email: </td>
-                                <td>{{$userInfo->email}}</td>
+                                <td>{{$user->email}}</td>
                             </tr>
                             <tr>
                                 <td class="text-bold">Member Since: </td>

@@ -133,16 +133,14 @@ class UsersController extends Controller {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show()
 	{
 		//
 
         $user = Auth::user();
-        $userInfo = User::find($id);
-        return view('users.profile', compact('userInfo','user'));
+        return view('users.profile', compact('user'));
 
 	}
 

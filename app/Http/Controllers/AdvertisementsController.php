@@ -51,7 +51,11 @@ class AdvertisementsController extends Controller {
 	{
 		//
         $user = Auth::user();
-        return view('properties.create',compact('user'));
+        $states = DB::table('states')->select('id','state_uf','state_name')->get();
+        foreach($states as $st){
+            $selectStates[$st->id] = $st->state_uf.' '.$st->state_name;
+        }
+        return view('properties.create',compact('user','selectStates'));
 	}
 
 	/**

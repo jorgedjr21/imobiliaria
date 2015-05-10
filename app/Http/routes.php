@@ -62,12 +62,13 @@ Route::get('/users',
         'middleware'=>'auth'
     ]);
 
-Route::get('/users/profile/{id}',
+Route::get('/users/profile',
     [
         'as'=>'users.show',
         'uses'=>'UsersController@show',
         'middleware'=>'auth'
     ]);
+
 Route::get('/users/{id}/edit',
     [
         'as'=>'users.edit',

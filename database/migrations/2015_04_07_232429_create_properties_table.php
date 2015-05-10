@@ -14,6 +14,7 @@ class CreatePropertiesTable extends Migration {
 	{
 		Schema::create('properties', function(Blueprint $table)
 		{
+            $table->engine ='InnoDB';
 			$table->increments('id');
             $table->string('type',100);
             $table->integer('bedrooms')->default(0);
