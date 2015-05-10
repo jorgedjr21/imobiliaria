@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('title','Home')
 @section('content')
+
 <div class="col-md-8" style="margin-left: 10px;">
 
     @if(count($ads) > 0)

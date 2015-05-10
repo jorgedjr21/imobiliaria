@@ -13,7 +13,7 @@
                 @include('users/partials/_form',['submit_text'=>'Create User'])
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default btn-lg pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Close</button>
             </div>
             {!! Form::close() !!}
         </div>
